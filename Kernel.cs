@@ -124,7 +124,7 @@ namespace Cosmosvirtual
             Pen ppp = new Pen(Color.FromArgb(0, 0, 0));
 
             Font ff = PCScreenFont.Default;
-            for (int a = 5; a < 65; a=a+5) graf.canvas.DrawString((a/5).ToString(),ff,ppp,250+((int)(dsin[a] * 150.00)),250 - (int)(dcos[a] * 150.00));
+            for (int a = 5; a < 65; a=a+5) graf.canvas.DrawString((a/5).ToString(),ff,ppp,512+((int)(dsin[a] * 300.00)),400 - (int)(dcos[a] * 300.00));
 
             graf.displays();
         }
