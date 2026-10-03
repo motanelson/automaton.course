@@ -107,11 +107,12 @@ namespace Cosmosvirtual
             dat=DateTime.Now;
             int s = dat.Second;
             int m = dat.Minute;
+            int mm = m / 12;
             int h = dat.Hour;
             if (s > 59) s = 0;
             if (m > 59) m = 0;
             if (h > 11) h = h - 12;
-            h = h * 5;
+            h = h * 5+mm;
             Font ff = PCScreenFont.Default;
             graf.cls(Color.White);
             for (int a = 5; a < 65; a=a+5) graf.canvas.DrawString((a/5).ToString(),ff,ppp,512+((int)(dsin[a] * 300.00)),400 - (int)(dcos[a] * 300.00));
