@@ -20,26 +20,7 @@ namespace Cosmosvirtual
         public static Canvas canvas;
         public static Bitmap bitmap;
 
-        public static void drawWindows(int x, int y)
-        {
-
-
-            Pen pb = new Pen(Color.FromArgb(0, 0, 0));
-            Pen pw = new Pen(Color.FromArgb(255, 255, 255));
-            Rectangle r = new Rectangle(x, y, 200, 200);
-            Rectangle r1 = new Rectangle(x, y, 200, 20);
-            canvas.DrawFilledRectangle(pw, x, y, 400, 400);
-            canvas.DrawRectangle(pb, x, y, 400, 400);
-            canvas.DrawFilledRectangle(pb, x, y, 400, 20);
-            canvas.DrawRectangle(pw, x, y, 400, 20);
-        }
-        public static void movetop(int x, int y)
-        {
-
-            drawWindows(x, y);
-
-
-        }
+        
         public static void starts()
         {
 
@@ -82,12 +63,12 @@ namespace Cosmosvirtual
             while (true)
             {
                 graf.starts();
-                graf.cls(Color.White);
+                
                 tests.mainLoop();
                 while (true)
                 {
-                    Thread.Sleep(200);
-
+                    Thread.Sleep(1000);
+                    tests.mainLoop();
 
 
 
@@ -122,10 +103,20 @@ namespace Cosmosvirtual
             double[] dsin = { 0.0000, 0.1045, 0.2079, 0.3090, 0.4067, 0.5000, 0.5877, 0.6691, 0.7431, 0.8090, 0.8660, 0.9135, 0.9510, 0.9781, 0.9945, 1.0000, 0.9945, 0.9781, 0.9510, 0.9135, 0.8660, 0.8090, 0.7431, 0.6691, 0.5877, 0.5000, 0.4067, 0.3090, 0.2079, 0.1045, 0.0000, -0.104, -0.207, -0.309, -0.406, -0.500, -0.587, -0.669, -0.743, -0.809, -0.866, -0.913, -0.951, -0.978, -0.994, -1.000, -0.994, -0.978, -0.951, -0.913, -0.866, -0.809, -0.743, -0.669, -0.587, -0.500, -0.406, -0.309, -0.207, -0.104, 0.0000, 0.00 };
 
             Pen ppp = new Pen(Color.FromArgb(0, 0, 0));
-
+            DateTime dat = new DateTime();
+            dat=DateTime.Now;
+            int s = dat.Second;
+            int m = dat.Minute;
+            int h = dat.Hour;
+            if (s > 59) s = 0;
+            if (m > 59) m = 0;
+            if (h > 12) h = h - 12;
             Font ff = PCScreenFont.Default;
+            graf.cls(Color.White);
             for (int a = 5; a < 65; a=a+5) graf.canvas.DrawString((a/5).ToString(),ff,ppp,512+((int)(dsin[a] * 300.00)),400 - (int)(dcos[a] * 300.00));
-
+            graf.canvas.DrawLine(ppp,512,400 ,512 + ((int)(dsin[s] * 260.00)), 400 - (int)(dcos[s] * 260.00));
+            graf.canvas.DrawLine(ppp, 512, 400, 512 + ((int)(dsin[m] * 200.00)), 400 - (int)(dcos[m] * 200.00));
+            graf.canvas.DrawLine(ppp, 512, 400, 512 + ((int)(dsin[h] * 150.00)), 400 - (int)(dcos[h] * 150.00));
             graf.displays();
         }
 
