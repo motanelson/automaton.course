@@ -117,7 +117,13 @@ namespace Cosmosvirtual
             graf.cls(Color.White);
             for (int a = 5; a < 65; a=a+5) graf.canvas.DrawString((a/5).ToString(),ff,ppp,512+((int)(dsin[a] * 300.00)),400 - (int)(dcos[a] * 300.00));
             graf.canvas.DrawLine(ppp,512,400 ,512 + ((int)(dsin[s] * 260.00)), 400 - (int)(dcos[s] * 260.00));
+            graf.canvas.DrawLine(ppp, 512-1, 400-1, 512 + ((int)(dsin[s] * 260.00)), 400 - (int)(dcos[s] * 260.00));
+            graf.canvas.DrawLine(ppp, 512+1, 400+1, 512 + ((int)(dsin[s] * 260.00)), 400 - (int)(dcos[s] * 260.00));
             graf.canvas.DrawLine(ppp, 512, 400, 512 + ((int)(dsin[m] * 200.00)), 400 - (int)(dcos[m] * 200.00));
+            graf.canvas.DrawLine(ppp, 512-1, 400-1, 512 + ((int)(dsin[m] * 200.00)), 400 - (int)(dcos[m] * 200.00));
+            graf.canvas.DrawLine(ppp, 512+1, 400+1, 512 + ((int)(dsin[m] * 200.00)), 400 - (int)(dcos[m] * 200.00));
+            graf.canvas.DrawLine(ppp, 512, 400, 512 + ((int)(dsin[h] * 150.00)), 400 - (int)(dcos[h] * 150.00));
+            graf.canvas.DrawLine(ppp, 512-1, 400-1, 512 + ((int)(dsin[h] * 150.00)), 400 - (int)(dcos[h] * 150.00));
             graf.canvas.DrawLine(ppp, 512, 400, 512 + ((int)(dsin[h] * 150.00)), 400 - (int)(dcos[h] * 150.00));
             graf.displays();
         }
